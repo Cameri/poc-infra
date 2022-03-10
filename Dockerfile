@@ -1,6 +1,6 @@
 FROM alpine:3.14
 
-RUN apk add --no-cache coreutils tree
+RUN apk add --no-cache tree coreutils
 
 WORKDIR /app
 
