@@ -1,6 +1,6 @@
 FROM node:16-alpine3.15
 
-RUN apk add coreutils
+RUN apk add --no-cache coreutils
 
 RUN touch i-was-here
 
