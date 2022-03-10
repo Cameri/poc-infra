@@ -2,8 +2,12 @@ FROM alpine:3.14
 
 RUN apk add --no-cache coreutils tree
 
-RUN touch i-was-here
+WORKDIR /app
 
-RUN touch here-too
+RUN touch /app/i-was-here
 
-ENTRYPOINT [ "tree" ]
+RUN touch /app/here-too
+
+COPY ./always-here /app/always-here
+
+ENTRYPOINT [ "tree /app" ]
