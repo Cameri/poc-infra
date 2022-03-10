@@ -24,8 +24,6 @@ pipeline {
                                 --verbosity debug \
                                 --insecure \
                                 --skip-tls-verify \
-                                --cache \
-                                --cache-dir=/cache \
                                 --destination ricardoclearco/demo-dev:latest
                         '''
                     }
