@@ -7,11 +7,12 @@ metadata:
 spec:
   containers:
   - name: kaniko
-    workingDir: /home/jenkins
     image: gcr.io/kaniko-project/executor@sha256:0d8408715c7bcc2dc747405936c0e72665cafb2357fb78e23eb71f90bc39624f
     imagePullPolicy: Always
     command:
-    - /busybox/cat
+    - sleep
+    args:
+    - 99d
     tty: true
     volumeMounts:
       - name: jenkins-docker-cfg

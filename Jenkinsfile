@@ -15,7 +15,10 @@ pipeline {
         }
         stage('Build with Kaniko') {
             steps {
-        		container(name: 'kaniko') {
+                echo 'Building with Kaniko'
+            }
+            steps {
+        		container('kaniko') {
                     sh '/kaniko/executor --dockerfile `pwd`/Dockerfile --context `pwd`/ --verbosity debug --insecure --skip-tls-verify --destination=ricardoclearco/demo-dev:latest'
                 }
         	}
