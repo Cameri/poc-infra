@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    jenkins-build: app-build
+    some-label: "build-app-${BUILD_NUMBER}"
+spec:
+  containers:
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor@sha256:ff98af876169a488df4d70418f2a60e68f9e304b2e68d5d3db4c59e7fdc3da3c
+    imagePullPolicy: IfNotPresent
+    command:
+    - /busybox/cat
+    tty: true
+    volumeMounts:
+      - name: jenkins-docker-cfg
+        mountPath: /kaniko/.docker
+  volumes:
+  - name: jenkins-docker-cfg
+    projected:
+      sources:
+      - secret:
+          name: container-registry-credentials
+          items:
+            - key: .dockerconfigjson
+              path: config.json
