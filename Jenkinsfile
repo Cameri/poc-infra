@@ -14,7 +14,7 @@ pipeline {
                 sh 'env'
         		container('kaniko') {
                     sh 'env'
-                    sh '/kaniko/executor --context `pwd` --insecure --skip-tls-verify --destination=ricardoclearco/demo-dev:latest --cache --cache-dir=/cache --force'
+                    sh '/kaniko/executor --context `pwd` --cache-copy-layers --insecure --skip-tls-verify --destination=ricardoclearco/demo-dev:latest --cache=true --force'
                 }
         	}
         }
