@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Building with Kaniko'
         		container('kaniko') {
-                    sh '/kaniko/executor --context `pwd` --verbosity debug --insecure --skip-tls-verify --destination=ricardoclearco/demo-dev:latest'
+                    sh '/kaniko/executor --context `pwd` --verbosity debug --insecure --skip-tls-verify --destination=ricardoclearco/demo-dev:latest --force'
                 }
         	}
         }
