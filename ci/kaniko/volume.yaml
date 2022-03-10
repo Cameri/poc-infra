@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: kaniko-cache-volume
+  namespace: jenkins
+spec:
+  storageClassName: kaniko-cache-volume
+  accessModes:
+  - ReadOnlyMany
+  capacity:
+    storage: 10Gi
+  hostPath:
+    path: "/tmp/kaniko-cache"
