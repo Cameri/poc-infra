@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        kubernetes {
+            yamlFile "ci/jenkins/agents/kaniko-executor.yaml"
+        }
+    }
     options {
         timeout(time: 1, unit: 'HOURS')
     }
